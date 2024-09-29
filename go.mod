@@ -1,4 +1,4 @@
-module github.com/dvhh/edgegrid-client-go/edgegrid
+module github.com/dvhh/edgegrid-client-go
 
 go 1.23.1
 
