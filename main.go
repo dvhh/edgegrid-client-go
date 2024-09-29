@@ -72,7 +72,7 @@ func getReq(verb string, path string, config *edgegrid.Config) (*http.Request, e
 
 func main() {
 	if len(os.Args) < 3 {
-		fmt.Fprintf(os.Stderr, "Usage:\n  %s <METHOD> <:PATH> [HEADER:VALUE]...", filepath.Base(os.Args[0]))
+		fmt.Fprintf(os.Stderr, "Usage:\n  %s <METHOD> <:PATH> [HEADER:VALUE]...\n", filepath.Base(os.Args[0]))
 		os.Exit(1)
 	}
 	verb := os.Args[1]
