@@ -115,7 +115,7 @@ func main() {
     if err != nil {
         panic(err)
     }
-	if resp.StatusCode != http.StatusContinue {
+	if resp.StatusCode != http.StatusOK {
 		defer os.Exit(1)
 	}
 }
