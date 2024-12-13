@@ -60,15 +60,23 @@ func getReqBody(verb string) ([]byte, error) {
 
     return body, nil
 }
+
+
 // will include request body if verb requires it (assuming json body).
 func getReq(verb string, path string, config *edgegrid.Config) (*http.Request, error) {
     body, err := getReqBody(verb)
     if err != nil {
-        return nil, errors.Wrap(err, "Error creating request")
+        return nil, errors.Wrap(err, "Error creating request, while reading body")
     }
 
-	return client.NewJSONRequest(*config, verb, path[1:], body)
+    req, err := client.NewRequest(*config, verb, path[1:], bytes.NewBuffer(body))
+    if err != nil {
+        return nil, errors.Wrap(err, "Error creating request")
+    }
+    req.Header.Set("Content-Type", "application/json")
+    return req, nil
 }
+
 
 func main() {
 	if len(os.Args) < 3 {
