@@ -23,6 +23,7 @@ package main
 
 // use https://github.com/akamai/AkamaiOPEN-edgegrid-golang/tree/v1
 import (
+	"bytes"
 	"fmt"
 	"github.com/akamai/AkamaiOPEN-edgegrid-golang/client-v1"
 	"github.com/akamai/AkamaiOPEN-edgegrid-golang/edgegrid"
@@ -68,7 +69,9 @@ func getReq(verb string, path string, config *edgegrid.Config) (*http.Request, e
     if err != nil {
         return nil, errors.Wrap(err, "Error creating request, while reading body")
     }
-
+    if body == nil {
+	return client.NewRequest(*config, verb, path[1:], nil)
+    }
     req, err := client.NewRequest(*config, verb, path[1:], bytes.NewBuffer(body))
     if err != nil {
         return nil, errors.Wrap(err, "Error creating request")
