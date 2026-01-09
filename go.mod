@@ -9,10 +9,9 @@ require (
 
 require (
 	github.com/google/uuid v1.1.1 // indirect
-	github.com/konsorten/go-windows-terminal-sequences v1.0.1 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
-	github.com/sirupsen/logrus v1.4.2 // indirect
+	github.com/sirupsen/logrus v1.8.3 // indirect
 	golang.org/x/sys v0.1.0 // indirect
 	gopkg.in/ini.v1 v1.51.1 // indirect
 )
